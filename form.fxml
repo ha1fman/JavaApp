@@ -1,0 +1,52 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.*?>
+<GridPane fx:controller="main.MainWindowController"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="25">
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+    </padding>
+    <TableView fx:id="table" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="5" prefWidth="452.0">
+        <columns>
+            <TableColumn text="Наименование" prefWidth="150">
+                <cellValueFactory>
+                    <PropertyValueFactory property="name"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Количество" prefWidth="150">
+                <cellValueFactory>
+                    <PropertyValueFactory property="quantity"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Цена за единицу" prefWidth="150">
+                <cellValueFactory>
+                    <PropertyValueFactory property="price"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+    <Button fx:id="deleteButton" GridPane.rowIndex="1" GridPane.columnIndex="1" onAction="#deleteButtonAction">Удалить
+    </Button>
+    <Button fx:id="editButton" GridPane.rowIndex="1" GridPane.columnIndex="2" onAction="#editButtonAction">
+        Редактировать
+    </Button>
+    <Button fx:id="cleanButton" GridPane.rowIndex="1" GridPane.columnIndex="3" onAction="#cleanButtonAction">Очистить
+    </Button>
+    <HBox spacing="10" alignment="CENTER_RIGHT" GridPane.columnIndex="4"
+          GridPane.rowIndex="1" GridPane.columnSpan="1">
+        <Label text="Итого: "></Label>
+        <TextField fx:id="totalTextField" promptText="Итого"
+                   prefWidth="90" editable="false"/>
+    </HBox>
+    <HBox spacing="10" alignment="bottom_left" GridPane.columnIndex="0"
+          GridPane.rowIndex="2" GridPane.columnSpan="5">
+        <TextField fx:id="nameTextField" promptText="Наименование"
+                   prefWidth="150"/>
+        <TextField fx:id="quantityTextField" promptText="Количество"
+                   prefWidth="90"/>
+        <TextField fx:id="priceTextField" promptText="Цена"
+                   prefWidth="90"/>
+        <Button fx:id="addEditButton" text="Добавить" onAction="#addEditButtonAction"/>
+    </HBox>
+</GridPane>
